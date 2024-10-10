@@ -1,7 +1,6 @@
 import "./style.css"
+import { selected } from './js/selected.js'
+import { photo } from './js/photo.js'
 
-const h1 = document.querySelectorAll('h1')
-
-const message = (e) => console.log(e)
-
-h1.forEach((title) => title.addEventListener('click', message))
+selected()
+photo()
