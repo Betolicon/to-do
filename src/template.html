@@ -21,6 +21,24 @@
 
             </ul>
         </div>
+        <dialog id="form">
+            <form>
+                <h3>New book</h3>
+                <label for="title">Book's title</label>
+                <input type="text" id="title" required>
+                <label for="author">Author</label>
+                <input type="text" id="author" required>
+                <label for="pages">Number of pages</label>
+                <input type="number" id="pages"  min="1" value="1" required>
+                <label for="read">Have you already read it?</label>
+                <select name="read" id="read" required>
+                    <option value="yes">Yes, I have</option>
+                    <option value="no">No, I haven't</option>
+                </select>
+                <button type="submit" id="Submit">Submit</button>
+                <button id="close">Close</button>
+            </form>
+        </dialog>
     </div>
     <div class="main">
         <div class="content">
