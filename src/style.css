@@ -13,15 +13,40 @@ body{
     grid-template-columns:minmax(120px, 0.5fr) 3fr
 }
 
+.user{
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: minmax(40px, 0.5fr) minmax(40px, 0.5fr);
+}
+
+.userPhoto{
+    width: 30px;
+    height: auto;
+}
+
+h2{
+    margin: 0;
+}
+
 .sidebar{
-    padding: 12px;
+    padding: 18px;
     background-color: rgba(0, 21, 255, 0.751);
     display: grid;
     grid-row: span 2;
 }
 
-h1{
+.header{
+    padding: 8px;
+}
+
+h1,h2{
     font-size: clamp(0.5rem, 5vw + 1rem, 1.5rem);
+}
+
+.selected{
+    background-color: rgba(161, 133, 252, 0.686);
+    border-radius: 10px;
+    padding: 8px;
 }
 
 ul, h1{
