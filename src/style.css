@@ -63,14 +63,17 @@ ul, h1{
     background-color: gainsboro;
 }
 
-label, input, #Submit, select, #close{
-    margin: 3px;
+label, input, #Submit, select, #close, textarea{
+    margin: 6px;
 }
 
 input, select{
-    border-radius: 6px;
-    border: 1px solid rgb(174, 171, 171);
     height: 22px;
+}
+
+textarea,input, select{
+    border-radius: 6px;
+    border: 1px solid rgb(174, 171, 171);  
 }
 
 #form{
@@ -102,4 +105,5 @@ input, select{
 form{
     display: flex;
     flex-direction: column;
+    width: clamp(100px, 180px, 250px);
 }
