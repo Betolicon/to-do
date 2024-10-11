@@ -6,4 +6,4 @@ export const Submit = () =>{
 
     const buttonS = document.getElementById('Submit')
     buttonS.addEventListener('click', submitted)
-}
+}   
