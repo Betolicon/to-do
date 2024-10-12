@@ -10,18 +10,29 @@ html, body{
 
 body{
     display: grid;
-    grid-template-columns:minmax(120px, 0.5fr) 3fr
+    grid-template-columns:minmax(150px, 0.6fr) 3fr
 }
 
 .user{
     display: grid;
-    column-gap: 16px;
-    grid-template-columns: minmax(40px, 0.5fr) minmax(40px, 0.5fr);
+    column-gap: 18px;
+    grid-template-columns: minmax(40px, 0.7fr) minmax(40px, 0.7fr);
+    height: 25%;
+    padding: 10px;
+}
+
+.user > * {
+    align-self: center;
+    justify-self: start;
+}
+
+.user h2{
+    justify-self: end; 
 }
 
 .userPhoto{
-    width: 30px;
-    height: auto;
+    width: clamp(25px, 45px, 60px);
+    height: clamp(25px, 45px, 60px);;
 }
 
 h2{
@@ -40,7 +51,8 @@ h2{
 }
 
 h1,h2{
-    font-size: clamp(0.5rem, 5vw + 1rem, 1.5rem);
+    font-size: clamp(0.5rem, 5vw + 1rem, 1.8rem);
+    transition: background-color 1s;
 }
 
 .selected{
@@ -63,7 +75,7 @@ ul, h1{
     background-color: gainsboro;
 }
 
-label, input, #Submit, select, #close, textarea{
+label, input, #Submit, select, .close, textarea{
     margin: 6px;
 }
 
@@ -76,14 +88,14 @@ textarea,input, select{
     border: 1px solid rgb(174, 171, 171);  
 }
 
-#form{
+#form, #list{
     border-radius: 10px;
     padding: 14px;
     border: 1px solid black;
 }
 
-#Submit{
-    background-color: rgb(0, 114, 228);
+#Submit, .close{
+
     color: white;
     font-size: medium;
     font-weight: bold;
@@ -92,14 +104,12 @@ textarea,input, select{
     border-radius: 10px;
 }
 
-#close{
+.close{
     background-color: rgb(228, 0, 0);
-    color: white;
-    font-size: medium;
-    font-weight: bold;
-    border: 0;
-    padding: 8px 10px;
-    border-radius: 10px;
+}
+
+#Submit{
+    background-color: rgb(0, 114, 228); 
 }
 
 form{
