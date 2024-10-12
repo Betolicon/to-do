@@ -1,11 +1,11 @@
-import { hideDialog } from "./dialog"
+import { hideDialog, hideList} from "./dialog"
 
 export const Close = () =>{
 
-const closed = () =>{
-    hideDialog()
+const closed = (e) =>{
+    (e.target.value == 1) ? hideDialog() : hideList();
 }
 
-const buttonC = document.getElementById('close')
-buttonC.addEventListener('click', closed)
+const buttonC = document.querySelectorAll('.close')
+buttonC.forEach(button => button.addEventListener('click', closed))
 }
