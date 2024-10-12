@@ -75,7 +75,7 @@ ul, h1{
     background-color: gainsboro;
 }
 
-label, input, #Submit, select, .close, textarea{
+label, input, .Submit, select, .close, textarea{
     margin: 6px;
 }
 
@@ -94,8 +94,7 @@ textarea,input, select{
     border: 1px solid black;
 }
 
-#Submit, .close{
-
+.Submit, .close{
     color: white;
     font-size: medium;
     font-weight: bold;
@@ -108,7 +107,7 @@ textarea,input, select{
     background-color: rgb(228, 0, 0);
 }
 
-#Submit{
+.Submit{
     background-color: rgb(0, 114, 228); 
 }
 
