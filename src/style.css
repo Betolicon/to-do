@@ -71,6 +71,15 @@ ul, h1{
     cursor: pointer;
 }
 
+li{
+    list-style: none;
+    padding: 2px;
+}
+
+.lists{
+    overflow: auto;
+}
+
 .header{
     background-color: gainsboro;
 }
