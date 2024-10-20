@@ -3,22 +3,24 @@
 html, body{
     margin: 0;
     padding: 0;
-    height: 100vh;
-    box-sizing: border-box;
+    height: 100%;
     font-family: "Josefin Sans", sans-serif;
 }
 
 body{
     display: grid;
-    grid-template-columns:minmax(150px, 0.6fr) 3fr
+    grid-template-columns:minmax(150px, 1fr) 6fr
 }
 
 .user{
     display: grid;
     column-gap: 18px;
     grid-template-columns: minmax(40px, 0.7fr) minmax(40px, 0.7fr);
-    height: 25%;
     padding: 10px;
+}
+
+.tasks{
+    align-self: center;
 }
 
 .user > * {
@@ -43,7 +45,8 @@ h2{
     padding: 18px;
     background-color: rgba(0, 21, 255, 0.751);
     display: grid;
-    grid-row: span 2;
+    grid-template-rows: 100px 100px 1fr 50px;
+    grid-row: span 3;
 }
 
 .header{
@@ -62,7 +65,6 @@ h1,h2{
 }
 
 ul, h1{
-    justify-self: center;
     padding: 0;
     margin: 0;
     text-align: start;
@@ -73,11 +75,8 @@ ul, h1{
 
 li{
     list-style: none;
-    padding: 2px;
-}
-
-.lists{
-    overflow: auto;
+    padding: 8px;
+    font-size: clamp(0.6rem, 5vw + 0.8rem, 1.2rem);
 }
 
 .header{
@@ -124,4 +123,37 @@ form{
     display: flex;
     flex-direction: column;
     width: clamp(100px, 180px, 250px);
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 15px;
+    padding: 8px;
+}
+
+.card{
+    width: clamp(40%, 60%, 90%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(155, 142, 255);
+    height: max-content;
+    padding: 12px;
+}
+
+.completed{
+    background-color: white;
+    border-radius: 10px;
+    padding: 8px;
+    border: 0;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.completed:active{
+    border: 1px black solid;
+    background-color: gainsboro;
 }
