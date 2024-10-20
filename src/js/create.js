@@ -1,9 +1,66 @@
+import { Complete } from "./completed";
+
 export const createList = () => {
     const name = document.getElementById('name').value;
     createItem(name)
     saveFolders(name)
     savedItems(name)
 };
+
+export const createTask = ()=>{
+    const task = getValues()
+    saveTasks(task)
+    loadTasks()
+}
+
+const getValues = () =>{
+    const Title = document.getElementById('Title').value
+    const Description = document.getElementById('description').value
+    const Date = document.getElementById('Duedate').value
+    const Priority = document.getElementById('priority').value
+    const Folder = document.getElementById('folder').value  
+
+    return { Title, Description, Date, Priority, Folder}
+}
+
+const saveTasks = (task) =>{
+    let savedTasks = JSON.parse(localStorage.getItem('content')) || [];
+    savedTasks.push(task);
+    localStorage.setItem('content', JSON.stringify(savedTasks));
+}
+
+const loadTasks = () => {
+    const savedTasks = JSON.parse(localStorage.getItem('content')) || [];
+    const content = document.querySelector(".content")
+
+    savedTasks.forEach(task => {
+        const card = document.createElement("div")
+        card.className = 'card';
+        const title = document.createElement("h3")
+        const description = document.createElement("p")
+        const date = document.createElement("p")
+        const priority = document.createElement("p")
+        const folder = document.createElement("p")
+        const button = document.createElement("button")
+        button.innerHTML = "Complete"
+        button.classList.add('completed')
+        button.addEventListener("click", Complete)
+    
+        title.innerHTML = task.Title
+        description.innerHTML = task.Description
+        date.innerHTML = task.Date
+        priority.innerHTML = task.Priority
+        folder.innerHTML = task.Folder
+        card.appendChild(title);
+        card.appendChild(description);
+        card.appendChild(date);
+        card.appendChild(priority);
+        card.appendChild(folder);
+        card.appendChild(button)
+        content.appendChild(card)
+    });
+};
+
 
 const createItem = (name) =>{
     const items = document.getElementById('List-items');
@@ -49,4 +106,5 @@ const loadLists = () => {
 window.onload = ()=>{
     loadFolders()
     loadLists()
+    loadTasks()
 }
