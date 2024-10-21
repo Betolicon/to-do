@@ -1,4 +1,5 @@
-import { Complete } from "./completed";
+import { selectedList } from "./selected";
+import { loadTasks } from "./loadTasks";
 
 export const createList = () => {
     const name = document.getElementById('name').value;
@@ -9,7 +10,11 @@ export const createList = () => {
 
 export const createTask = ()=>{
     const task = getValues()
+    if (task.Title.length != 0 && task.Description.length != 0 && task.Date.length != 0 && task.Priority.length != 0 && task.Folder.length != 0){ 
     saveTasks(task)
+}    
+    else{
+        alert('Fill out the form')}
     loadTasks()
 }
 
@@ -19,52 +24,21 @@ const getValues = () =>{
     const Date = document.getElementById('Duedate').value
     const Priority = document.getElementById('priority').value
     const Folder = document.getElementById('folder').value  
-
     return { Title, Description, Date, Priority, Folder}
 }
 
-const saveTasks = (task) =>{
+const saveTasks = (task) => {
+    const id = Date.now(); // Genera un ID único basado en la fecha actual
+    const taskWithId = { id, ...task }; // Añade el ID al objeto de tarea
     let savedTasks = JSON.parse(localStorage.getItem('content')) || [];
-    savedTasks.push(task);
+    savedTasks.push(taskWithId);
     localStorage.setItem('content', JSON.stringify(savedTasks));
 }
-
-const loadTasks = () => {
-    const savedTasks = JSON.parse(localStorage.getItem('content')) || [];
-    const content = document.querySelector(".content")
-
-    savedTasks.forEach(task => {
-        const card = document.createElement("div")
-        card.className = 'card';
-        const title = document.createElement("h3")
-        const description = document.createElement("p")
-        const date = document.createElement("p")
-        const priority = document.createElement("p")
-        const folder = document.createElement("p")
-        const button = document.createElement("button")
-        button.innerHTML = "Complete"
-        button.classList.add('completed')
-        button.addEventListener("click", Complete)
-    
-        title.innerHTML = task.Title
-        description.innerHTML = task.Description
-        date.innerHTML = task.Date
-        priority.innerHTML = task.Priority
-        folder.innerHTML = task.Folder
-        card.appendChild(title);
-        card.appendChild(description);
-        card.appendChild(date);
-        card.appendChild(priority);
-        card.appendChild(folder);
-        card.appendChild(button)
-        content.appendChild(card)
-    });
-};
-
 
 const createItem = (name) =>{
     const items = document.getElementById('List-items');
     const item = document.createElement('li');
+
     item.innerHTML = name;
     items.append(item);
     return items
@@ -98,6 +72,7 @@ const loadLists = () => {
     const items = document.getElementById('List-items');
     savedItems.forEach(name => {
         const item = document.createElement('li');
+        item.addEventListener('click',selectedList)
         item.innerHTML = name;
         items.append(item);
     });

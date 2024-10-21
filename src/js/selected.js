@@ -1,13 +1,22 @@
 import { dialog, list } from "./dialog";
+import { folder } from "./folder";
+import { loadTasks } from "./loadTasks";
 
-export const selected = () =>{
-    const h1 = document.querySelectorAll('h1')
+export const selectedList = () =>{
+    const li = document.querySelectorAll('li')
 
     const select = (e) => {
-        h1.forEach(button => button.classList.remove('selected'));
+        li.forEach(button => button.classList.remove('selected'));
         e.target.classList.add('selected');
-        (e.target.id == 'tasks') ? dialog() : list()
+        if(e.target.id == 'tasks')
+            dialog()
+        else if (e.target.id == 'lists')
+            list()
+        else if (e.target.id == 'allTasks')
+            loadTasks()
+        else
+            folder(e)
     };
 
-    h1.forEach((title) => title.addEventListener('click', select))
+    li.forEach((item) => item.addEventListener('click', select))
 }
