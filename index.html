@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div class="sidebar">
+        <div class="user">
+            <h2>User</h2>
+        </div>
+        <div class="tasks">
+
+            <ul>
+                <li id="allTasks">My tasks</li>
+                <li id="tasks">Add new task</li>
+            </ul>
+        </div>
+        <div class="lists">
+
+            <ul id="List-items">
+                <li id="lists">Your lists</li>
+            </ul>
+        </div>
+        <dialog id="form">
+            <form>
+                <h3>New task</h3>
+                <label for="Title">Title</label>
+                <input type="text" id="Title" name="Title" required>
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="6" required></textarea>
+                <label for="Duedate">Due date</label>
+                <input type="date" id="Duedate" name="Duedate" required>
+                <label for="priority">Priority</label>
+                <select name="priority" id="priority" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <label for="folder">Folder</label>
+                <select name="folder" id="folder" required>
+                    <option value="default">Default</option>
+                </select>
+                <button type="submit" class="Submit" value="1">Submit</button>
+                <button type="button" class="close" value="1">Close</button>
+            </form>
+        </dialog>
+        <dialog id="list">
+            <form>
+                <h3>New List</h3>
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+                <button type="submit" class="Submit" value="2">Submit</button>
+                <button type="button" class="close" value="2">Close</button>
+            </form>
+        </dialog>
+    </div>
+    <div class="main">
+        <div class="content">
+
+        </div>
+    </div>
+</body>
+</html>
