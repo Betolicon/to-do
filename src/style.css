@@ -1,16 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 html, body{
-    height: 100%;
+    height: 100svh;
     padding: 0; 
     margin: 0;
     font-family: "Josefin Sans", sans-serif;
 }
 
-body{
-    display: grid;
-    grid-template-columns:minmax(150px, 1fr) 6fr
-}
 
 .user{
     display: grid;
@@ -41,12 +37,23 @@ h2{
     margin: 0;
 }
 
-.sidebar{
-    padding: 18px;
-    background-color: rgba(0, 21, 255, 0.751);
+.container{
+    height: 100%;
     display: grid;
-    grid-template-rows: 100px 100px 1fr 50px;
-    min-height: 100vh;
+    grid-template-columns: 1fr 4fr;
+}
+
+p:first-of-type{
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+}
+
+.sidebar{
+    background-color: rgba(0, 21, 255, 0.751);
+    grid-row: span 1;
+    display: grid;
+    grid-template-rows: 100px 100px 1fr;
 }
 
 .header{
@@ -127,21 +134,22 @@ form{
 
 .content{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     justify-items: center;
-    gap: 15px;
-    padding: 8px;
+    gap: 1rem;
+    background: lightblue;
+    padding: 1rem;
 }
 
 .card{
     width: clamp(40%, 60%, 90%);
+    height: fit-content;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgb(155, 142, 255);
-    height: max-content;
-    padding: 12px;
+    padding: 8px;
 }
 
 .completed{
